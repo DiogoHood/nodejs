@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Connect to database
-mongoose.connect('mongodb://admin:admin1@ds018258.mlab.com:18258/products_ndstr');
+mongoose.connect('mongodb://admin:admin1@ds018258.mlab.com:18258/products_ndstr', { useNewUrlParser: true });
 
 // Load models
 const Product = require('./models/product');
