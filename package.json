@@ -18,6 +18,7 @@
     "dotenv": "6.0.0",
     "express": "4.16.3",
     "http": "0.0.0",
+    "jsonwebtoken": "8.3.0",
     "md5": "2.2.1",
     "mongoose": "5.2.3",
     "uuid": "3.3.2"
