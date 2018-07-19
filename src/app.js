@@ -7,8 +7,11 @@ const config = require('./config');
 
 const app = express();
 
+// Loading environment variables
+require('dotenv').config();
+
 // Connect to database
-mongoose.connect(config.connectionString, { useNewUrlParser: true });
+mongoose.connect(process.env.DB_URL_MONGO, { useNewUrlParser: true });
 
 // Load models
 const Product = require('./models/product');
