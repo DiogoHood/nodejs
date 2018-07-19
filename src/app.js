@@ -3,11 +3,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const app = express();
 
 // Connect to database
-mongoose.connect('mongodb://admin:admin1@ds018258.mlab.com:18258/products_ndstr', { useNewUrlParser: true });
+mongoose.connect(config.connectionString, { useNewUrlParser: true });
 
 // Load models
 const Product = require('./models/product');

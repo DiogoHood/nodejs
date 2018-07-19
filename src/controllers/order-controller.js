@@ -1,5 +1,4 @@
 'use strict';
-'use strict';
 
 const repository = require('../repositories/order-repository');
 const uuidv1 = require('uuid/v1');
