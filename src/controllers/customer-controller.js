@@ -3,6 +3,7 @@
 const ValidatorContract = require('../validators/fluent-validator');
 const repository = require('../repositories/customer-repository');
 const md5 = require('md5');
+const emailService = require('../services/email-service');
 
 exports.post = async (req, res, next) => {
     let contract = new ValidatorContract();
@@ -21,6 +22,15 @@ exports.post = async (req, res, next) => {
             email: req.body.email,
             password: md5(req.body.password + global.SALT_KEY)
         });
+
+        await emailService.send(
+            req.body.email,
+            'diogorodrigues0801@gmail.com',
+            'Welcome to the jungle',
+            'Welcome to the jungle',
+            global.EMAIL_TMPL.replace('{0}', req.body.name)
+        );
+
         res.status(201).send({
             message: 'Customer successfully registered!'
         });
