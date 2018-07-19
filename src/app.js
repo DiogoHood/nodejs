@@ -11,15 +11,19 @@ mongoose.connect('mongodb://admin:admin1@ds018258.mlab.com:18258/products_ndstr'
 
 // Load models
 const Product = require('./models/product');
+const Customer = require('./models/customer');
+const Order = require('./models/order');
 
 // Load routers
 const indexRouter = require('./routers/index-router');
-const productRouter = require('./routers/product-router')
+const productRouter = require('./routers/product-router');
+const customerRouter = require('./routers/customer-router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/products', productRouter);
+app.use('/customers', customerRouter);
 
 module.exports = app;
